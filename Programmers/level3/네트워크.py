@@ -25,7 +25,7 @@ def BFS(start, visited, computers):
                 visited[j] = True
     
     
-# version 2
+# version 2 : 2D visited
 from collections import deque
 
 def solution(n, computers):
