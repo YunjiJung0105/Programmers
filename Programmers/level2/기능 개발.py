@@ -20,3 +20,24 @@ def solution(progresses, speeds):
     if sum(answer) != len(progresses):
         answer.append(count)
     return answer
+
+
+
+# 더 쉽게!
+import math
+def solution(progresses, speeds):
+    left = [math.ceil((100-progresses[i])/speeds[i]) for i in range(len(progresses))]
+   
+    answer = []
+    for i in range(len(left)):
+        if i == 0:
+            answer.append(1)
+            max_val = left[0]
+        else:
+            if left[i] > max_val:
+                answer.append(1)
+                max_val = left[i]
+            else:
+                answer[-1] += 1
+                
+    return answer
