@@ -10,3 +10,17 @@ def solution(prices):
         answer.append(count)
             
     return answer
+
+
+# 더 효율적으로!
+def solution(prices):
+    answer = list(range(len(prices)-1,-1,-1))
+    stack = []
+    
+    for i in range(len(prices)):
+        while stack and prices[stack[-1]] > prices[i]:
+            a = stack.pop()
+            answer[a] = i-a
+        stack.append(i)
+
+    return answer
